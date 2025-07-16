@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #fff8f4;
+    padding: 20px;
+    color: #333;
+}
+
+
+.centered {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+
+.slideshow {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 50px auto;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.slides {
+    display: flex;
+    width: 300%;
+    animation: slide 9s infinite;
+}
+
+.slides img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    object-fit: cover;
+    flex-shrink: 0;
+    display: block;
+}
+
+
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+
+    33% {
+        transform: translateX(-100%);
+    }
+
+    66% {
+        transform: translateX(-200%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+
+.gallery-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.gallery-grid img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    border: 2px solid #fff0e5;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.1);
+}
+
+
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.lightbox:target {
+    display: flex;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+.lightbox span {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    font-size: 40px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+@media (max-width: 768px) {
+    .slides img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .gallery-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .gallery-grid img {
+        width: 80%;
+        height: auto;
+    }
+}
